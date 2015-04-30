@@ -1,0 +1,118 @@
+<div class="page-footer">
+{exp:channel:entries limit="1" disable="pagination|member_data"}
+
+  
+  {if segment_1 == "shortreads"}
+  
+        <!--- shortread taster entries -->
+        
+        {embed="embeds/_shortread_tasters"}
+        
+        <!--- entry shortread copyright using tag styles -->    
+        <div class="tagged copyright">
+        <h5>Copyright Licence for this article</h5>
+        
+                {if shortread_copyright}
+                
+                <p>{shortread_copyright}</p>
+                
+                {if:else}
+                
+                <p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img src="{global_image_url}Attrib-NonComm-ShareAlike-4.0-Int-80x15.png" alt="CC BY-NC-SA 4.0" title="CC BY-NC-SA 4.0" /></a><i>This article is licensed under the Creative Commons 'Attribution Non-Commercial ShareAlike 4.0 International' licence</i>.</p>
+                
+                {/if}
+       
+    </div><!--/.tagged--> 
+
+    {if:else}
+    
+                <!--- related entries -->
+                {if related_content}
+                            {embed="embeds/_related" entry_id="{entry_id}"}
+                {/if}
+    
+   <!--- entry copyright using tag styles -->    
+    <div class="tagged copyright">
+        <h5>Copyright Licence for this article</h5>        
+     <p> {copyright}</p>
+       
+    </div><!--/.tagged-->     
+        
+    {/if}
+    
+    
+<!--- entry tags-->    
+    <div class="tagged">
+        <h5>Tagged</h5>        
+        {exp:tagger:tags entry_id="{entry_id}" backspace="7"}
+         {if tagger:no_tags}<p>No tags where found.</p>{/if} 
+        <span class="word"><a href="{site_url}tags/{tagger:urlsafe_tagname}">{tagger:tag_name}</a></span> 
+       {/exp:tagger:tags}
+       
+    </div><!--/.tagged-->
+    
+    
+    
+    {if segment_1 == "tutorials"}
+    
+    <!--- entry category info -->
+    <div class="cat-detail">
+        <h5>Categorized in</h5> 
+        {categories}
+                <a href="{path={segment_1}/list}"><span class="word">{category_name}</span></a> {/categories}  
+    </div><!--/.cat-detail-->
+    
+    {if:elseif  segment_1 == "weblearn"}
+    <!--- entry category info -->
+    <div class="cat-detail">
+        <h5>Categorized in</h5> 
+        {categories}
+                <a href="{path={segment_1}/list}"><span class="word">{category_name}</span></a>
+{/categories}  
+    </div><!--/.cat-detail-->    
+   
+    {if:elseif  segment_1 == "expertise"}
+     <!--- entry category info -->
+    <div class="cat-detail">
+        <h5>Categorized in</h5> 
+        {categories}
+                <a href="{path={segment_1}/list}"><span class="word">{category_name}</span></a> {/categories}  
+    </div><!--/.cat-detail-->   
+
+    {if:elseif  segment_1 == "blog"}
+     <!--- entry category info -->
+    <div class="cat-detail">
+        <h5>Categorized in</h5> 
+        {categories}
+                <a href="{path={segment_1}/list}"><span class="word">{category_name}</span></a> {/categories}  
+    </div><!--/.cat-detail-->
+    
+        {if:elseif  segment_1 == "universities"}
+     <!--- entry category info -->
+    <div class="cat-detail">
+        <h5>Categorized in</h5> 
+        {categories}
+                <a href="{path={segment_1}/list}"><span class="word">{category_name}</span></a> {/categories}  
+    </div><!--/.cat-detail-->
+    
+     {if:elseif  segment_1 == "shortreads"}
+     <!--- entry category info -->
+    <div class="cat-detail">
+        <h5>Categorized in</h5> 
+        {categories}
+                <a href="{path={segment_1}/list}"><span class="word">{category_name}</span></a> {/categories}  
+    </div><!--/.cat-detail-->
+
+    {if:else}
+    
+    <div class="cat-detail" style="display:none; height:40px;">
+        </div>
+    
+    {/if}
+
+</div><!--/.page-footer-->
+
+{/exp:channel:entries}
+
+
+

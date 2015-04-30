@@ -1,0 +1,29 @@
+
+    
+<!--DISQUS COMMENTING, updated to show/hide and dynamically call comments on show-->
+
+<!-- An element a visitor can click if they <3 comments! thx to nternetinspired for this ace little script -->
+<button class="show-comments">Click to load comments</button>
+ 
+<!-- The empty element required for Disqus to loads comments into -->  
+<div id="disqus_thread"></div>
+        
+<!--/ COMMENTING-->
+ 
+
+<script type='text/javascript'>// Requires jQuery of course.
+$(document).ready(function() {
+    $('.show-comments').on('click', function(){
+          var disqus_shortname = 'elearningmatrix'; // Replace this value with *your* username.
+ 
+          // ajax request to load the disqus javascript
+          $.ajax({
+                  type: "GET",
+                  url: "http://" + disqus_shortname + ".disqus.com/embed.js",
+                  dataType: "script",
+                  cache: true
+          });
+          // hide the button once comments load
+          $(this).fadeOut();
+    });
+});</script>

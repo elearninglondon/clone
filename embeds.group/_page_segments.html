@@ -1,0 +1,97 @@
+
+<!--switchee conditionals for the page template-->
+{exp:switchee variable="{segment_1}" parse="inward"}
+
+{case value="weblearn-area"}
+{exp:channel:entries entry_id="49"}
+{embed="embeds/_page_module_body"}
+{/exp:channel:entries}
+{/case}
+
+{case value="introduction"}
+{exp:channel:entries entry_id="5"}
+{embed="embeds/_page_module_body"}
+{/exp:channel:entries}
+{/case}
+
+{case value="expertise-area"}
+{exp:channel:entries entry_id="8"}
+{embed="embeds/_page_module_body"}
+{/exp:channel:entries}
+{/case}
+
+{case value="tutorials-area"}
+{exp:channel:entries entry_id="9"}
+{embed="embeds/_page_module_body"}
+{/exp:channel:entries}
+{/case}
+
+{case value="blog-area"}
+{exp:channel:entries entry_id="10"}
+{embed="embeds/_page_module_body"}
+{/exp:channel:entries}
+{/case}
+
+{case value="contact"}
+{exp:channel:entries entry_id="27"}
+{embed="embeds/_page_module_body"}
+{/exp:channel:entries}
+{/case}
+
+{case value="terms-and-privacy"}
+{exp:channel:entries entry_id="29"}
+{embed="embeds/_page_module_body"}
+{/exp:channel:entries}
+{/case}
+
+{case value="copyright"}
+{exp:channel:entries entry_id="39"}
+{embed="embeds/_page_module_body"}
+{/exp:channel:entries}
+{/case}
+
+{case value="accessibility"}
+{exp:channel:entries entry_id="41"}
+{embed="embeds/_page_module_body"}
+{/exp:channel:entries}
+{/case}
+
+{!--{case value="london-met-staff"}
+{exp:channel:entries entry_id="48"}
+{embed="embeds/_page_module_body"}
+{/exp:channel:entries}
+{/case}
+--}
+{case value="credits"}
+{exp:channel:entries entry_id="50"}
+{embed="embeds/_page_module_body"}
+{/exp:channel:entries}
+{/case}
+
+{case value="thankyou"}
+{exp:channel:entries entry_id="57"}
+{embed="embeds/_page_module_body"}
+{/exp:channel:entries}
+{/case}
+
+{case value="universities-area"}
+{exp:channel:entries entry_id="111"}
+{embed="embeds/_page_module_body"}
+{/exp:channel:entries}
+{/case}
+
+{case value="tessello"}
+{exp:channel:entries entry_id="124"}
+{embed="embeds/_page_module_body"}
+{/exp:channel:entries}
+{/case}
+
+
+
+
+{/exp:switchee}
+<!--/end of switchee conditionals-->
+
+
+
+

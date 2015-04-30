@@ -1,0 +1,45 @@
+{embed="embeds/_html_head" my_page_title="{segment_3}"}
+{embed="embeds/_head"}
+
+<div id="page">
+  
+<h2>Search results: &nbsp; <small> {exp:search:total_results} &nbsp; results &nbsp; for &nbsp; "{exp:search:keywords}"</small></h2>
+
+<div class="page-body">
+
+
+
+{exp:search:search_results switch="resultRowTwo|resultRowOne" pagination="bottom"}
+
+{!--{absolute_count}--}
+<div class="list_entry">
+
+
+
+<a href="{channel_url}detail/{url_title}">{image_slideshow limit="1"}{exp:ed_imageresizer image="{image}" maxWidth="90" maxHeight="90" cropratio="130:100" alt="{title}" debug="yes"}{/image_slideshow}</a> 
+<p> <b><a href="{channel_url}detail/{url_title}">{title}</a></b> from <b><em><a href="{channel_url}">{channel}</a></em></b><br/>{exp:snippet total="250" word="" ellipsis="..."}{page_body}{/exp:snippet}<a href="{channel_url}detail/{url_title}"><i> - read the full entry</i></a></p>
+
+
+</div><!--/.list_entry-->
+
+
+{if total_results <= '1'}
+{paginate}
+    <div class="paginate"><span class="pagecount">Page {current_page} of {total_pages} pages</span>  
+   {pagination_links}</div>
+    {/paginate}
+{/if}
+
+
+
+
+
+
+{/exp:search:search_results}
+
+</div><!--/.page-body-->
+
+
+</div><!--/#page-->
+
+{embed="embeds/_foot"}

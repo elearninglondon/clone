@@ -1,0 +1,112 @@
+<!--page module page body stuff - only for stand alone pages with large top images-->
+
+{exp:channel:entries channel="assorted_content" disable="pagination|member_data|trackbacks|categories" limit="1"}
+<!--- author, date and snapshot summary fields -->
+      <span class="pub_date_author">by: {author} on: {entry_date format="%M %d, %Y"}</span>
+        <h2>{title}</h2>
+    {if summary}
+        <p class="snapshot"><b>Snapshot:</b>
+        {exp:snippet total="200" word="" ellipsis="..."}{summary}{/exp:snippet}
+        </p>
+    {/if}
+
+<!--- social media share and print buttons removed for stand alone pages-->
+
+<!---all page content fields-->
+<div class="page-body">
+
+    {if social_video}   
+    <div class="media-embed">
+
+    {exp:channel_videos:videos entry_id="{entry_id}" embed_width="450" embed_height="300"}
+        <!--<h3>{video:title}</h3>-->
+        <br><br>
+        {video:embed_code}
+    {/exp:channel_videos:videos}
+    
+    </div><!--/.media-embed-->
+
+<!--- embed media in the page body if it's there-->
+{if:elseif embed_media}
+
+    <div class="media-embed"> 
+    {embed="embeds/_embed_media"}
+    </div><!--/.media-embed-->
+
+
+<!--- otherwise place the single image or image slideshow into the page body-->
+{if:elseif image_slideshow}
+
+{embed="embeds/_image_slideshow"}
+
+<!--- if there's no image or media, give a message to say so-->
+{if:else}
+
+    <div class="no-image-thmb">Sorry, no image available</div>
+    
+{/if}
+
+<!--- page body field-->
+{if page_body}
+    
+    {exp:tagstripper:tagsToStrip tags='div|object|embed|iframe'}{page_body}{/exp:tagstripper:tagsToStrip}
+
+    {if segment_1 == "introduction"}          
+    <br /><br />
+    
+    <h4>List of Channels</h4>
+     <ul>             
+       <li> <a href="expertise">The Expertise section</a> 
+        <small>Our channel for continuing prefessional development, under the SEDA scheme</small></li>  
+       <li> <a href="tutorials">The Tutorials section</a>
+         <small>Tutorials on all types of technology in learning, teaching and asesment</small></li> 
+       <li> <a href="weblearn">The Weblearn section</a>  <small>Our channel for all things relating to the Blackboard learning management system - at London Met we call this Weblearn</small></li>  
+       <li> <a href="blog">The Blog & News section</a>  <small>Our blog - that's every article published in each channel of the Matrix, plus some added news and discussion articles</small></li>  
+     </ul>           
+{/if}
+       
+{/if}<!--/{page_body}-->
+
+
+<!--- download files field within page body field-->
+{if file_download}
+    <div class="page-body-downloads">
+       <h5>DOWNLOADS:</h5>
+       {file_download}
+       <ul>
+       <li>
+      <a href="{url}">[{kind} : {size}]<span class="download-span"> <img src="{global_image_url}download_icon_sm.png" alt="downloads"/></span></a> '{title}'{if desc}, <i>{desc}</i>{/if} 
+       </li>
+       </ul>
+       {/file_download}
+    </div><!--/.panel-content-downloads-->
+    
+{/if}
+
+</div><!--/.page_body-->
+
+<!--- panel content field displaying tabs, accordions or page view-->
+
+{if panel_content}
+    {embed="{select_view}"}
+{/if}
+
+
+<br />
+<hr />
+
+<!--- begin the page footer area-->
+
+{embed="embeds/_page_foot"}
+
+<div style="clear:both"></div>
+<hr />
+
+<!--is commenting on?-->
+
+{if commenting == "y"}
+
+{embed="embeds/_disqus"}
+{/if}
+
+{/exp:channel:entries}

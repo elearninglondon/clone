@@ -1,0 +1,33 @@
+{exp:channel:entries channel="not assorted_content" disable="member_data|trackbacks" limit="1" backspace="2"}
+
+    <div class="related-content">
+        <h3>Related Entries in this series</h3>
+        
+        <h4>Overview: <a href="{path={channel_short_name}/detail/{url_title}}">{title}</a></h4>
+        
+    <ol>    {related_content}
+       <!--<div class="rel-list-box">-->
+    
+      <li> <!--<div style="padding:10px;"><style>img {margin:5px;}</style>-->
+
+    <!--[if lte IE 9]><style>.ie-fix-img-thmb { width:90px;height:auto;border:none;}</style><![endif]-->
+    <a href="{path={channel_short_name}/detail/{url_title}}">{image_slideshow limit="1"}   {exp:ed_imageresizer image="{image}" maxWidth="80" maxHeight="70" cropratio="130:100" alt="{title}" debug="yes" forceWidth="yes" forceHeight="yes" }{/image_slideshow}</a>
+    
+<h6><a href="{path={channel_short_name}/detail/{url_title}}">{exp:snippet total="50" word="" ellipsis="..."}{title}{/exp:snippet}</a></h6>
+<small>{exp:snippet total="100" word="" ellipsis="..."}{summary}{/exp:snippet}</small>
+<strong>Filed in <a href="{channel_url}">'{channel_title}'</a></i></strong>
+
+{/related_content}
+
+
+<!--</div>--><!-- </div>--> </li>
+  
+    </ol>
+        <div style="clear:left;"></div>
+        
+        
+    </div><!--/.related-content-->
+    
+   
+ 
+{/exp:channel:entries}

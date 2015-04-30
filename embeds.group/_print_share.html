@@ -1,0 +1,45 @@
+<!--social media sharing icons - NEW2014! using sharer jquery and css with sprite in /scripts/share/-->
+  
+{exp:channel:entries} 
+    <style>a {cursor: pointer;}#sharer-bottom {width:200px;margin:4px 0px 0px 11px !important;}#sharer-bottom .sharer-icon {margin-right: 5px;margin-bottom:2px;}</style>
+
+
+    <div id="sharer-bottom" class="sharer-container"></div>
+
+{/exp:channel:entries}
+
+<div class="sharing">
+<!--<div class="sharing-inner">-->
+   
+    <!--print pdf-->
+
+    {exp:channel:entries channel="assorted_content|weblearn|expertise|tutorials|blog|universities" disable="member_data|trackbacks" limit="1" backspace="2"}
+    
+    <span class="sharing-printing">
+        
+    {if segment_1 == "weblearn"}    
+        <a href="{url_title_path=weblearn/pdf}"><img src="{global_image_url}print-icon.png" alt="Print or Download the PDF" title="Print or Download the PDF"/></a>
+        
+    {if:elseif segment_1 == "tutorials"}           
+        <a href="{url_title_path=tutorials/pdf}"><img src="{global_image_url}print-icon.png" alt="Print or Download the PDF" title="Print or Download the PDF"/></a>
+         
+    {if:elseif segment_1 == "expertise"}        
+        <a href="{url_title_path=expertise/pdf}"><img src="{global_image_url}print-icon.png" alt="Print or Download the PDF" title="Print or Download the PDF"/></a>
+     
+    {if:elseif segment_1 == "blog"}      
+        <a href="{url_title_path=blog/pdf}"><img src="{global_image_url}print-icon.png" alt="Print or Download the PDF" title="Print or Download the PDF"/></a>
+       
+    {if:elseif segment_1 == "universities"}      
+        <a href="{url_title_path=universities/pdf}"><img src="{global_image_url}print-icon.png" alt="Print or Download the PDF" title="Print or Download the PDF"/></a>
+         
+    {if:else}
+ <h2><a href="{site_url}" alt="go home" title="go home">The London Met Elearning Matrix</a></h2>  
+    {/if}
+    </span>
+    
+    {/exp:channel:entries} 
+       
+<!--</div>--><!--/.sharing-inner-->
+</div><!--/.sharing-->
+
+

@@ -1,0 +1,189 @@
+/*drop down menu css from css-tricks.com, added to, edited and hacked by penworks.net*/
+
+ul  { list-style: none; }
+p  { margin: 15px 0; }
+
+.top-nav {
+   font-family: helvetica neue, arial, tahoma, lucida grand, trebuchet MS, sans-serif;
+   clear:both;
+   float:left;
+   list-style:none;
+   height: 33px;
+   padding: 0px;
+   width:990px;
+   font-style: normal;
+   font-weight: 500;
+   font-size:16px;
+   color: #3A4C67;
+   background: #EBEBEB;
+   position:absolute;
+   top:85px;
+   left: 0px;
+   z-index:300 !important;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   font-smoothing: antialiased;
+   line-height:25px;
+}
+
+
+.top-nav li.active{
+   background: #87D6D8;
+   color:#DFEDB9 !important;
+}
+
+.top-nav li.active a{
+   color:#2E6F6E !important;
+}
+
+.top-nav li.active a:hover{
+    color:#809408 !important;
+}
+
+/* 
+	LEVEL ONE
+*/
+
+
+ul.dropdown  {
+   font-weight: inherit;
+   font-size:inherit;
+   position: absolute;
+   top:0px;
+   left:0px;
+   width:973px;
+   float:left;
+   padding-left:20px;
+   z-index:-2;
+   border-top:none;
+}
+ul.dropdown li { float: left; background: #EBEBEB;}
+ul.dropdown a:hover  { color: #000;}
+   { color: #ffa500; }
+ul.dropdown li a  {
+   display: block;
+   padding: 4px 12px 4px 12px;
+   border-right: 1px solid #C3DDDD;
+   color: #222;
+   height: auto;
+   }
+   
+   /* IE 10 fixes ---- @media screen and (min-width:0\0) ---- */
+   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none){
+    /* IE9 and IE10 rule sets go here */
+    ul.dropdown li a  {
+   padding: 4px 12px 4px 12px;
+    }
+}
+  /* Target FF all versions fixes */ 
+   @-moz-document url-prefix() {
+          ul.dropdown li a  {
+   padding: 4px 12px 4px 12px;
+          }
+   }
+   
+   
+ul.dropdown li:last-child a  { border-right: none; } /* Doesn't work in IE */
+ul.dropdown li:last-of-type a {border-right:none !important;}
+ul.dropdown li.hover,
+ul.dropdown li:hover  { background: #fff; color: black; position: relative; }
+ul.dropdown li.hover a { color: black;}
+
+
+/* 
+	LEVEL TWO
+*/
+ul.dropdown ul {
+   width: 220px;
+   visibility: hidden;
+   position: absolute;
+   top: 100%;
+   left: 0;
+   }
+ul.dropdown ul li {
+   font-weight: normal;
+   background: #f6f6f6;
+   color: #000;
+   border-bottom: 1px solid #ccc;
+   float: none;
+   -moz-box-shadow: -1px 0px 4px rgba(0,0,0,0.2);
+   -webkit-box-shadow: -1px 0px 4px rgba(0,0,0,0.2);
+   box-shadow: -1px 0px 4px rgba(0,0,0,0.2);
+   }
+									  
+                                    /* IE 6 & 7 Needs Inline Block */
+ul.dropdown ul li a{ border-right: none; width: 100%; display: inline-block; }
+
+
+
+
+ul.dropdown ul li a:active > .top-nav li.active {
+   background: #87D6D8;
+   color:#DFEDB9 !important;
+}
+
+/* 
+	LEVEL THREE
+*/
+ul.dropdown ul ul { left: 60%; top: 0px;}
+ul.dropdown li:hover > ul { visibility: visible; }
+
+
+
+
+/*///RESPONSIVE MENU ////*/
+
+
+/*menu icon hidden until media query active state*/
+#menu-icon {
+
+	display: hidden;
+	width: 40px;
+	height: 40px;
+	background: #00aeae url(../images/menu-icon.png) center;
+
+}
+
+a:hover#menu-icon {
+
+	background-color: #22ffff;
+	border-radius: 4px 4px 0 0;
+
+}
+
+/*MEDIA QUERY*/
+
+@media screen and (min-width:320px) and (max-width:640px) {
+
+/*   #menu-icon {
+      display:inline-block;
+}
+   .top-nav ul, .top-nav:active ul{ 
+      display: none;
+
+      top: 0px;
+      width: 50%;
+      text-align: center;
+}       
+   .top-nav li {
+      text-align: left;
+      width: 50%;
+      padding: 5px 10px 5px 20px;
+      margin: 0;
+}
+   .top-nav:hover ul {
+      display: block;
+
+   }   
+   .top-nav ul ul.sub_menu{
+      position: absolute;
+      left: 120px;
+      top: -10px;
+      width: 100%;
+   }
+  
+ul.dropdown li a {
+      border-right: none !important;
+}*/
+
+}

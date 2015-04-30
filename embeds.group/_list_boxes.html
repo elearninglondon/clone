@@ -1,0 +1,134 @@
+<!-- LIST DISPLAY FOR ALL CATEGORIES -->
+
+<script type="text/javascript">
+$(function(){
+  $('#path-entry-holder').masonry({
+    // options
+    itemSelector : '.path_sum_entry',
+  columnWidth : 1
+  });
+});
+</script>
+
+<div id="path-entry-holder">
+{exp:channel:entries channel="expertise" disable="member_data|trackbacks" limit="4" dynamic=“no” paginate="bottom"}
+  
+{if no_results}
+    <div class="path_sum_entry">
+    <span class="no-results">Sorry, no results for this {channel_name} category - try another!</span>
+    </div>
+{/if}
+  
+<div class="path_sum_entry">
+
+<h3>{exp:channel:category_heading channel="expertise"}{category_name}{/exp:channel:category_heading}/
+
+{categories}
+
+    {if category_id == "47"}
+        
+        <i>{category_name}</i></h3>
+        <div class="cat_summary">      
+        {if category_description}
+        <div class="cat-sum-sm"><p><i>{category_description}</i></p>
+        </div>
+        {/if}
+        </div>
+        
+    <!--/category_id=47-->
+    {/if}
+
+    {if category_id == "48"}
+        
+        <i>{category_name}</i></h3>
+        <div class="cat_summary">      
+        {if category_description}
+        <div class="cat-sum-sm"><p><i>{category_description}</i></p>
+        </div>
+        {/if}
+        </div>
+
+    <!--/category_id=48-->
+    {/if}
+
+    {if category_id == "49"}
+        
+        <i>{category_name}</i></h3>
+        <div class="cat_summary">
+        {if category_description}
+        <div class="cat-sum-sm"><p><i>{category_description}</i></p>
+        </div>
+        {/if}
+        </div>
+
+    <!--/category_id=49-->
+    {/if}
+
+    {if category_id == "50"}
+
+        <i>{category_name}</i></h3>
+        <div class="cat_summary">
+        {if category_description}
+        <div class="cat-sum-sm"><p><i>{category_description}</i></p>
+        </div>
+        {/if}
+        </div>
+
+    <!--/category_id=50-->
+    {/if}
+    
+{/categories}
+
+<!--list of related entries for pathway categorys-->
+<div class="path-related-content">
+
+    <h3>Overview: <a href="{path={channel_short_name}/detail/{url_title}}">{title}</a></h3>
+
+    <div class="path-related-list">
+    
+            <ol>{related_content}
+            <li>
+            
+            <!--<div class="path-inner-content">-->
+                
+            
+            <!--Entry: {title}-->
+            
+            <!--[if lte IE 9]><style>.ie-fix-img-thmb { width:90px;height:auto;border:none;}</style><![endif]-->
+            <a href="{path={channel_short_name}/detail/{url_title}}">{image_slideshow limit="1"}   {exp:ed_imageresizer image="{image}" maxWidth="80" maxHeight="70" cropratio="130:100" alt="{title}" debug="yes" forceWidth="yes" forceHeight="yes" }{/image_slideshow}</a>
+            
+            <h6><a href="{path={channel_short_name}/detail/{url_title}}">{exp:snippet total="50" word="" ellipsis="..."}{title}{/exp:snippet}</a></h6>
+            <small>{exp:snippet total="100" word="" ellipsis="..."}{summary}{/exp:snippet}</small>
+            
+            {/related_content}
+            <!--</div>--><!-- </div>-->
+            
+            </li>
+            </ol>
+    
+    </div><!--/.path-related-list-->
+
+</div><!--/.path-related-content-->
+
+
+</div><!--/.path_sum_entry-->
+
+
+{/exp:channel:entries}
+
+</div><!--/#path-entry-holder-->
+
+
+
+<!--pagination-->
+{!--{exp:channel:entries channel="expertise" disable="member_data|trackbacks" orderby="date" limit="7" dynamic=“no” paginate="bottom"}
+
+{if total_results <= '1'}
+    {paginate}
+    <div class="paginate"><span class="pagecount">Page {current_page} of {total_pages} pages</span>  
+    {pagination_links}</div>
+    {/paginate}
+{/if}
+
+{/exp:channel:entries}--}
+

@@ -1,0 +1,46 @@
+{embed="embeds/_html_head" my_page_title="The London Met Elearning Matrix/{segment_2}"}
+{embed="embeds/_head"}<!--head above this contains wrapper and skin openers-->
+<!--this is the tutorials channel index-->
+
+<!--all the category descriptions and thumbs-->
+<div class="panel-index">
+   <div class="panel-index-holder">
+      <div class="panel-index-inner-cat">
+   
+       <h2>Tutorials</h2>
+      {exp:channel:categories channel="tutorials" category_group="3" style="linear" show_empty="yes" }
+ 
+         <div class="panel-index-cat-box-4">
+         
+          <a href="{path=tutorials/list}">  
+              {exp:ed_imageresizer image="{category_image}" maxWidth="200" maxHeight="130" cropratio="130:100" forceWidth="yes" forceHeight="yes" alt="{category_name}" debug="yes"}</         
+         <a href="{path=tutorials/list}"> <h3>{category_name}</h3>  </a>    
+         <p class="cat-sum-small">{exp:snippet total="170" word="" ellipsis="..."}  {category_description}{/exp:snippet}</p>
+         <a href="{path=tutorials/list}" class="panel-index-cat-box-more">All in {category_name}</a>       
+         
+         </div><!--/.panel-index-cat-box-->
+{/exp:channel:categories}
+
+
+<div style="clear:both;"></div>
+
+    <!--site index short description to full article-->
+    {exp:channel:entries channel="assorted_content" disable="member_data|trackbacks" limit="1" entry_id="9"}       
+      <div class="excerpt"> <hr>
+          <h4>The {title} Channel</h4>
+        
+          {page_body:excerpt} </div><!--/.excerpt-->      
+          <a href="{page_url}" class="showmore-gotoentry">Read more &rarr;</a>
+      
+     {/exp:channel:entries}
+     
+        </div><!--/.panel-index-inner-cat-->
+     
+   </div><!--/.panel-index-holder-->
+</div><!--/.panel-index-->
+
+              {!--<div class="channel-rss">  <a href="{exp:perssonal:link path='tutorials/rss' channel='tutorials' feed_name='London Met Elearning Matrix Tutorials' feed_url='tutorials' feed_description='Elearning Tutorials at London Met'}"><img src="{site_url}themes/site_themes/default_site/images/feed.png">Tutorials RSS</a>
+           </div>--}<!--/.channel-rss--> 
+
+
+{embed="embeds/_foot"}

@@ -1,0 +1,140 @@
+/*expertise extra styles for related content and other special cases */
+/*imported into main layout.css sheet*/
+
+/*//////////    STYLING  FOR CHANNEL HOMEPAGE PATHS    //////////////*/
+
+#path-entry-holder {
+   /*margin-top:70px;*/
+   /*border:1px solid red;*/
+   clear:both;
+   overflow:hidden;
+}
+
+.path_summary {
+   padding:20px 70px 1px 10px;
+   overflow: hidden;
+   margin: -12px 10px 10px 30px;
+   height: auto;
+   width: 800px;
+   font-size: 90%;
+   float:left;
+}
+
+.path_image {
+    width: 128px;
+    height: 128px;
+    padding:10px;
+    float:right;
+    margin:0;
+    position:absolute;
+    top:90px;
+    left:850px;
+}
+
+.path_image_th {
+    width: 70px;
+    height: 70px;
+    float:left;
+}
+
+.path_sum_entry{
+   font-style:normal;
+   font-size: 11px;
+   margin: 10px 5px 10px 5px;
+   padding:10px 15px 10px 15px;
+   color: #387B79;
+   border: 7px solid #E7EDEB;
+   text-align:left;
+   width:420px;
+   max-width: 420px;
+   min-height: 150px;
+   height: auto;
+   float:left;
+   clear:left;
+}
+
+.path_sum_entry:hover{
+   background: #E5E5E5;
+   border:inset 1px solid #7B7C7B;
+   opacity:0.8;
+   filter:alpha(opacity=80); /* For IE8 and earlier */
+}
+
+.path_sum_entry p {
+   font-size: 12px;
+      width: 300px;
+}
+
+.path_sum_entry h3{
+   text-transform:lowercase;
+   letter-spacing: 2px;
+   float:left;
+   width: 420px;
+   height:auto;
+   min-height: 20px;
+   color: #898E84;
+   font-weight: 600;
+   font-size: 14px !important;
+   border-bottom: 1px dotted #ABB3AC;
+   margin: 5px;
+   padding:0px 5px 0px 10px;
+}
+
+.path_sum_entry .pub_date_sm {
+   font-weight:600;
+   font-style:normal;
+   text-transform:lowercase;
+   margin: 0px 5px 13px 5px;
+   padding:0;  
+   color: #2D676E;
+   text-align:left;
+   max-width: 90%;
+   height:15px;
+}
+
+.path-related-content {
+   float:left;
+   vertical-align:top;
+   width: 99%;
+   height:auto;
+   font-weight:normal;
+   padding:0px 5px 5px 10px;
+   font-weight:600;
+   margin-top: -5px;
+   overflow:hidden;
+   clear:left;
+}
+
+.path-related-content h3 {
+   margin: 10px 5px;
+   font-style: italic;
+   border-bottom:none;
+}
+
+.path-related-list {
+   width: 400px;
+}
+
+.path-related-list h6 {
+   /*width:420px;*/
+   font-size:inherit;
+   border-bottom:none;
+   margin-top:-10px;
+}
+
+/*.path-related, .path-related ol {   clear:both;}*/
+
+
+.path-related-list ol li {
+   font-weight:700;
+   padding:5px;
+   clear:left;
+}
+
+/*.path-inner-content {
+   padding: 10px;
+}
+
+.path-inner-content img {
+   margin:5px;
+}*/

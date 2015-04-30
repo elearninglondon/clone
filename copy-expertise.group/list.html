@@ -1,0 +1,61 @@
+{embed="embeds/_html_head" my_page_title="{category_name}"}
+{embed="embeds/_head"}
+
+<!--this is the NEW expertise channel list to show full entry links (like weblearn channel) -->
+
+<div id="page">
+  
+<!--category heading and summary stuff-->
+{exp:channel:category_heading channel="expertise"}
+
+<h2>everything in <span class="cat-name">'{category_name}'</span></h2>
+
+<div class="page-body">
+  
+<div class="cat_summary">
+  
+{exp:ed_imageresizer image="{category_image}" maxWidth="150" maxHeight="100" cropratio="150:100" forceWidth="yes" forceHeight="yes" alt="{title}" debug="yes" class="category_image"}
+
+    {if category_description}
+    <div class="cat-sum-small">{category_description}
+        {/if}
+        </div><!--/.cat_sum-small-->
+          
+         
+   {if segment_4 == "beginner-expertise"}{exp:channel:entries channel="expertise" dynamic='off' limit='1' entry_id="98"}
+      <a href="{channel_url}detail/{url_title}" class="cat-sum-overview">
+      {/if}
+      {if segment_4  == "practitioner"}{exp:channel:entries channel="expertise" dynamic='off' limit='1' entry_id="-"}
+      <a href="{channel_url}detail/{url_title}" class="cat-sum-overview">  
+      {/if}
+      {if segment_4 == "expert"}{exp:channel:entries channel="expertise" dynamic='off' limit='1' entry_id="-"}
+      <a href="{channel_url}detail/{url_title}" class="cat-sum-overview">  
+      {/if}
+      {if segment_4 == "advocate"}{exp:channel:entries channel="expertise" dynamic='off' limit='1' entry_id="-"}
+      <a href="{channel_url}detail/{url_title}" class="cat-sum-overview">  
+      {/if}
+            
+            
+       Read more about {category_name} Expertise</a>
+      
+      {/exp:channel:entries}
+<h4>See below for everything in the <span class="cat-name">'{category_name}'</span> category</h4>
+        
+        {/exp:channel:category_heading}
+    </div><!--/.cat_summary-->
+    
+    
+
+<!--category entries stuff-->
+
+{embed="embeds/_list_items_expertise"}<!--show only expertise entries here-->
+
+
+
+</div><!--/.page-body-->
+
+
+</div><!--/#page-->
+
+<!--embed the footer stuff-->
+{embed="embeds/_foot"}

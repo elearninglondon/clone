@@ -1,0 +1,141 @@
+{embed="embeds/_html_head" my_page_title="The Homepage"}
+{embed="embeds/_head"}<!--head above this contains wrapper and skin openers-->
+<!--this is the site index-->
+
+    <script type="text/javascript" src="{site_url}themes/site_themes/default_site/scripts/jquery.nivo.slider.pack.js"></script>
+   <script type="text/javascript">
+   $(window).load(function() {
+     $('#slider_wide').nivoSlider({
+     pauseOnHover: true,
+     effect: 'boxRain',
+     animSpeed: 1000,
+     pauseTime: 7000
+     });
+   });
+   </script>
+   
+
+
+<!-- featured content panel slideshow -->
+    
+    <div class="panel-index">
+       
+    <div class="slider-wrapper theme-default">        
+    <div class="ribbon"></div>          
+    <div class="panel-index-features-slideshow">
+      
+      <!--category="1|2|3|4|5|6|7|10|11|12|13|14|15"-->
+       
+          <div id="slider_wide" class="nivoSlider">
+          
+          {exp:channel:entries search:featured_content_slideshow="y" channel="weblearn|tutorials|expertise|blog|universities" group_id="1|5|6|7|8" limit="10" disable="pagination|trackbacks|member_data" dynamic="yes" orderby="date" category="not 8|9" sort="desc" cache="no" parse="inward"}
+          
+          <div class="panel-index-content-box">
+          
+          <a href="{channel_url}detail/{url_title}">{image_slideshow limit="1"} {exp:ed_imageresizer image="{image}" maxWidth="990" maxHeight="130" cropratio="100:22" forceWidth="yes" forceHeight="yes" alt="{caption}" debug="yes" title="{caption}" id="#{entry_id}"}
+          {/image_slideshow}</a>      
+          </div><!--/.panel-index-content-box-->
+          
+          {/exp:channel:entries}
+          
+          </div>  <!--/.nivoSlider-->
+          
+     <!--nivo slider captions--> 
+    {exp:channel:entries search:featured_content_slideshow="y"  channel="weblearn|tutorials|expertise|blog|universities" group_id="1|5|6|7|8" limit="10" disable="pagination|trackbacks|member_data" dynamic="yes" orderby="date" category="not 8|9" sort="desc" cache="no" parse="inward"}
+    
+    <div id="{entry_id}" class="nivo-html-caption">
+        <div class="index-captions">
+           <p class="p-caption">{exp:snippet total="150" word="" ellipsis="..."}{summary} 
+          {/exp:snippet} <br/><a href="{channel_url}detail/{url_title}"><b>read more &rarr;</b></a></p>
+        <!-- <p class="p-caption-cat"> 
+         This entry is from the<br/> <a href="{path={channel_name}}"><span class="feat-entry-caption-channel-title">{channel_title}</span></a> channel
+          </p>-->
+          <h3 class="feat-entry-caption-title"><a href="{channel_url}detail/{url_title}"> {exp:snippet total="40" word="" ellipsis="..."}{title}{/exp:snippet}  </a></h3>
+ </div> <!--/.index-captions-->
+    </div><!--/.nivo-html-caption-->
+    
+    {/exp:channel:entries}
+    
+    <!--site index short description to full article and new section on using the website-->
+        {exp:channel:entries channel="assorted_content" disable="member_data|trackbacks" entry_id="5|112" fixed_order="5|112"} 
+      <div class="excerpt-homepage">  
+          <h2>{title}</h2>
+          {page_body:excerpt}
+        <a href="{page_url}" class="showmore-gotoentry">Read more &rarr;</a>  
+      </div><!--/.excerpt-->
+      
+      
+     {/exp:channel:entries}
+      
+    </div><!--/.slider-wrapper .theme-default-->
+    </div><!--/.panel-index-features-slideshow-->
+         
+    </div><!--/.panel-index-->
+ 
+ 
+ <div class="panel-index" style="margin-top:-3px !important">
+
+<div class="panel-index-holder">
+ {exp:channel:entries channel="assorted_content" fixed_order="8|9|49" style="linear"}<!--weblearn local is 3, live is 49-->
+
+      <div class="panel-index-inner">
+         <div class="panel-index-content-box">
+     
+      <!--assorted_content channel intros with conditional urls to channels-->
+      
+      <h3 class="h3-index"> 
+      {if entry_id == "8"}
+      <a href="{path=expertise}">  
+      {/if}
+      {if entry_id == "9"}
+      <a href="{path=tutorials}">  
+      {/if}
+      {if entry_id == "49"}<!--weblearn local is 3 live is 49-->
+      <a href="{path=weblearn}">  
+      {/if}
+      
+      {image_slideshow limit="1"}  
+                  {exp:ed_imageresizer image="{image}" maxWidth="280" maxHeight="170" cropratio="170:100" alt="{title}" debug="yes" class="panel-index-content-box-img"}
+                   {/image_slideshow}</a>
+      <div style="clear:left"></div>
+      
+            <!--title link-->
+  
+      {if entry_id == "8"}
+      <a href="{path=expertise}">  
+      {/if}
+      {if entry_id == "9"}
+      <a href="{path=tutorials}">  
+      {/if}
+      {if entry_id == "49"}
+      <a href="{path=weblearn}">  
+      {/if}
+    
+    {title} </a></h3>
+ 
+      <p>{exp:snippet total="70" word="" ellipsis="..."}{summary} 
+         {/exp:snippet}
+         
+ 
+      {if entry_id == "8"}
+      <a href="{path=expertise}" class="cat_sum_sm_readmore">Browse {title}</a>  
+      {/if}
+      {if entry_id == "9"}
+      <a href="{path=tutorials}" class="cat_sum_sm_readmore">Browse {title}</a>  
+      {/if}
+      {if entry_id == "49"}
+      <a href="{path=weblearn}" class="cat_sum_sm_readmore">Browse {title}</a> 
+      {/if}
+      
+      </p>
+  
+ </div><!--/.panel-index-content-box-->
+   </div><!--/.panel-index-inner-->
+
+{/exp:channel:entries}
+
+   </div><!--/.panel-index-holder-->
+</div><!--/.panel-index--> 
+ 
+
+{embed="embeds/_foot"}

@@ -1,0 +1,69 @@
+{embed="embeds/_html_head" my_page_title="{segment_1}/{segment_3}/{segment_4}"}
+{embed="embeds/_head"}
+
+<!--browse by list-->
+<div id="page">
+
+{exp:channel:category_heading channel="expertise|weblearn|tutorials|blog"}
+
+<h2>Browsing: <i>{category_name}</i></h2>
+
+<div class="page-body">
+    
+    <div class="cat_summary">
+
+<!--<img src="{category_image}" class="category_image_sm" height="{height}" width="{width}" align="left"/>-->
+
+{exp:ed_imageresizer image="{category_image}" maxWidth="150" maxHeight="100" cropratio="150:100" forceWidth="yes" forceHeight="yes" alt="{title}" debug="yes" class="category_image"}
+
+
+
+{if category_description}
+<div class="cat-sum-small"><p><i>{category_description}</i></p></div>
+{/if}
+<br />
+
+    </div>
+{/exp:channel:category_heading}
+
+<!--list the results-->
+
+<div style="clear:left"></div>
+
+{exp:channel:entries channel="expertise|weblearn|tutorials|blog" disable="member_data|trackbacks" orderby="date" sort="desc" limit="7" dynamic=“no” paginate="bottom"}
+
+{if no_results}
+<div class="list_entry">
+<span class="no-results">Sorry, no results for this category - try another!</span>
+</div>
+{/if}
+
+<div class="list_entry">
+    
+<a href="{channel_url}detail/{url_title}">{image_slideshow limit="1"} {exp:ed_imageresizer image="{image}" maxWidth="130" maxHeight="100" cropratio="130:100" alt="{title}" debug="yes"}
+      {/image_slideshow}</a>
+
+<a href="{channel_url}detail/{url_title}"><h3>{title}</h3></a>
+<p class="pub_date">{entry_date format="%D, %F %d, %Y"}</p>
+<p>{exp:snippet total="200" word="" ellipsis="..."}{page_body}{/exp:snippet}<a href="{channel_url}detail/{url_title}"><i>[read the full entry]</i></a></p>
+
+<p><i>Filed in the <a href="{channel_url}">'{channel_title}'</a> section</i></p>
+
+</div><!--end of entry panel-->
+
+<div style="clear:left;"></div>
+
+{if total_results <= '1'}
+{paginate}
+<div class="paginate"><span class="pagecount">Page {current_page} of {total_pages} pages</span>  
+{pagination_links}</div>
+{/paginate}
+{/if}
+
+{/exp:channel:entries}
+
+</div><!--/.page-body-->
+
+</div><!--/#page-->
+
+{embed="embeds/_foot"}

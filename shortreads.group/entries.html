@@ -1,0 +1,60 @@
+<!--{exp:channel:category_heading channel="content-form"}-->
+{embed="embeds/_html_head" my_page_title="{segment_3}"}
+{embed="embeds/_head"}
+
+
+
+<!--this is the shortreads channel -->
+{exp:channel:entries channel="shortreads" disable="pagination|member_data|trackbacks|categories" limit="1" parse="inward"}
+<div id="page">
+ 
+ <!--- author, date and snapshot summary fields -->
+      <span class="pub_date_author">by {if email_author}{email_author}{if:else}a {author}{/if}, via email, on {entry_date format="%M %d, %Y"}</span>
+ 
+ 
+<!--category heading and summary stuff-->
+<h2>{title}</h2>
+
+<!--- social media share and print buttons removed for stand alone pages-->
+{embed="embeds/_print_share"}
+<hr>
+
+
+<!--<script type='text/javascript'>
+function replaceStr(str) {
+return str
+.replace(/\*/g, "<b></b>;");
+}</script>-->
+
+<div class="emailer">
+     
+<!--<?$str ="-->
+
+{exp:tagstripper:tagsToSave tags='strong|b|i|em|p|div|h1|h2|h3|img|blockquote|a'}{email_text}
+{/exp:tagstripper:tagsToSave}
+{!--{exp:markdown smartypants ="yes"}{/exp:markdown}--}
+
+<!--<?echo str_replace (array("\n", "\r"), '', $str);?>-->
+
+</div>
+
+
+<div style="clear:both"></div>
+<hr>
+
+<!--embed the footer stuff-->
+{embed="embeds/_page_foot"}
+
+
+
+<!--is commenting on?-->
+
+{if commenting == "y"}
+{embed="embeds/_disqus"}
+{/if}
+
+{/exp:channel:entries}
+
+</div><!--/#page-->
+
+{embed="embeds/_foot"}

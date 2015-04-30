@@ -1,0 +1,156 @@
+ <!--[if lte IE 9]>
+        <style>
+        .top-nav {font-family: arial, tahoma, sans-serif !important;}
+        ul.dropdown li {font-weight: bold; padding-bottom:1px;}
+        </style>
+ <![endif]-->
+ 
+<!--<script type='text/javascript'>if ($.browser.msie && $.browser.version == 10) {
+  $("html").addClass("ie10");
+}</script>-->
+
+<!-- <link rel="stylesheet" href="{site_url}/themes/site_themes/default_site/css/dropdown-menu.css" media="screen" />-->
+
+</head>
+<body>
+       
+        <!--[if lte IE 7]>
+        <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+        <!--[if lt IE 7 ]>
+        <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+        <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+     
+<div id="wrapper">
+<div class="skin">
+<div id="top_header">
+    
+    <!--[if lte IE 11]>
+    <style>
+    #top_header h2{font-weight: 600;}
+    </style>
+    <![endif]-->
+    
+    
+       <!--ALERT FOR SANDBOX CLONE SITE MESSAGE -->
+   <div class="alert">
+   
+   <style>.alert{width:850px;height:40px;background:#ff1455;opacity:0.7;
+   filter:alpha(opacity=70); /* For IE8 and earlier */color:#fff;font-size:18px;font-weight:bold;padding:20px;z-index:500;position:absolute;top:5px;left:40px;}</style>
+    
+    This site is the REMOTE CLONE TESTING SITE. For the real ematrix, go to <a href="http://www.celtelearning.org" style="color:yellow;">http://www.celtelearning.org</a>!
+   </div>
+   
+   <!--/ ALERT FOR SANDBOX CLONE SITE MESSAGE -->
+    
+    
+    
+    
+    
+    
+    
+
+<h1 style="display:none"><a href="{site_url}" title="go home">{site_name}</a></h1>
+
+
+
+
+    <a href="{site_url}" alt="homepage" title="homepage"><div id="invisible-header-link" style="float:left;height:65px;width:25%; border:none; z-index:200;position:absolute; top:10px; left:0;"></div></a>    
+        
+     <!--social follow icons div here-->
+     
+            <div id="social-top">  
+                <ul>
+                {!--<li><a href="{exp:perssonal:link path='site/rss' channel='weblearn|expertise|tutorials|blog' feed_name='The London Met Elearning Matrix' feed_url='{channel_name}' feed_description='Elearning at London Met'}"><img src="{site_url}themes/site_themes/default_site/images/rss-boxxed-gr1.png" alt="Site RSS" title="Site RSS" /></a></li>--}
+<li><a href="http://www.facebook.com/pages/London-Met-Elearning/520318357984548"><img src="{site_url}themes/site_themes/default_site/images/facebook-boxxed-gr1.png" alt="Follow us on Facebook" title="Follow us on Facebook" /></a></li>
+<!--                <li><a href="http://vimeo.com/elearninglondonmet"><img src="{site_url}themes/site_themes/default_site/images/vimeo.png" alt="Vimeo" /></a></li>-->
+                <li><a href="https://twitter.com/elearninglondon"><img src="{site_url}themes/site_themes/default_site/images/twitter-boxxed-gr1.png" alt="Follow us on Twitter" title="Follow us on Twitter" /></a></li>
+                </ul> 
+            </div><!--/#social-top-->
+            
+            
+                    <!--search in header-->
+            <div id="search">
+            {exp:search:simple_form channel="weblearn|expertise|tutorials|blog|universities|shortreads" no_result_page="search/no-results" result_page="search/index" search_in="entries" channel="weblearn|expertise|tutorials|blog|universities|shortreads" results="8" status="open"}
+            <input type="text" name="keywords" value="search the site" size="25" maxlength="250" class="text" onblur="this.value = this.value || this.defaultValue; this.style.color = '#5B797B';"
+            onfocus="this.value=''; this.style.color = '#848D81';" />
+           <button class="search-btn" type="submit" title="search">&raquo;</button>
+            {/exp:search:simple_form}
+            </div><!--/#search-->
+
+
+    <div class="top-nav">
+    
+    <!--responsive icon for < 640 screens - this is inactive fttb -->
+    <a href="#" id="menu-icon"></a>
+        
+        
+    <ul class="dropdown">      
+        <li class="active" style="margin-left:-2000px"><a href="{path="/"}">Home</a></li>
+        <li><a href="{path="/expertise"}">Expertise &raquo;</a>
+                <ul class="sub_menu">
+                <li><a href="{path="expertise/list/category/beginner-expertise"}">Beginner</a></li>
+                <li><a href="{path="expertise/list/category/practitioner"}">Practitioner</a></li>
+                <li><a href="{path="expertise/list/category/expert"}">Expert</a></li>
+                <li><a href="{path="expertise/list/category/advocate"}">Advocate</a></li>
+            </ul>
+        </li>
+        <li><a href="{path="/tutorials"}">Tutorials &raquo;</a>
+                    <ul class="sub_menu">
+                <li><a href="{path="tutorials/list/category/beginner-tutorials"}">Beginner</a></li>
+                <li><a href="{path="tutorials/list/category/intermediate"}">Intermediate</a></li>
+                <li><a href="{path="tutorials/list/category/advanced"}">Advanced</a></li>
+                <li><a href="{path="tutorials/list/category/specials"}">Specials</a></li>
+            </ul>
+        </li>
+        <li><a href="{path="/weblearn"}">Weblearn &raquo;</a>
+                    <ul class="sub_menu">
+                <li><a href="{path="weblearn/list/category/learning-design"}">Learning Design</a></li>
+                <li><a href="{path="weblearn/list/category/communication"}">Communication</a></li>
+                <li><a href="{path="weblearn/list/category/collaboration"}">Collaboration</a></li>
+                <li><a href="{path="weblearn/list/category/assessment-feedback"}">Assessment &amp; Feedback</a></li>
+            </ul>
+        </li>
+        
+        <li><a href="{path="/universities"}">More &raquo;</a>
+
+            <ul class="sub_menu">
+                <li><a href="{path="/blog"}">All Entries</a></li>
+                <li><a href="{path="/universities"}">Universities</a>
+                    <ul class="sub_menu">
+                <li><a href="{path="universities/list/category/london-met"}">London Met Uni</a></li>
+                <li><a href="{path="universities/list/category/partners"}">Partner Institutions</a></li>
+                <li><a href="{path="universities/list/category/applied-research"}">Applied Research</a></li>
+                 </ul>
+        </li>
+                   <li><a href="/browse">Browse by</a>
+            
+                            <ul class="sub_menu">
+                                <li><a href="{path="/browse/media"}">Media</a></li>
+                                <li><a href="{path="/browse/pedagogy"}">Pedagogy</a></li>
+                                <li><a href="{path="/browse/resources"}">Resources</a></li>
+                                <li><a href="{path="/browse/disciplines"}">Disciplines</a></li>
+                            </ul>
+                        </li>
+                   <li><a href="{path="/shortreads/list"}">ShortReads</a></li>
+            </ul>
+        </li>
+        <li><a href="{path="/contact"}">Help &amp; Support &raquo;</a>
+            
+            <ul class="sub_menu">
+                <li><a href="{path="/how-to-use-this-site"}">How To Use This Site</a></li>
+                <li><a href="{path="/faq"}">Frequently Asked Questions</a></li>
+                <li><a href="{path="/contact"}">Contact the Team</a></li>
+               <!--<li><a href="{path="/suggest-an-entry"}">Suggest an Entry</a></li>-->
+               
+            </ul>
+        </li>
+     
+ 
+    </ul> 
+    </div>
+    
+    
+</div><!--/#top_header-->
+

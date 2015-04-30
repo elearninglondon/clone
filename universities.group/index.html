@@ -1,0 +1,81 @@
+{embed="embeds/_html_head" my_page_title="Universities Area"}
+{embed="embeds/_head"}<!--head above this contains wrapper and skin openers-->
+<!--this is the universities channel index-->
+
+<!--all the category descriptions and thumbs-->
+
+<div class="panel-index">
+
+<div class="panel-index-holder">
+<div class="panel-index-inner-cat">
+   
+   <h2>Universities Area</h2>
+   
+        <div class="right-panel-recent-entries">
+        <h2>Recent entries in 'Universities'</h2>
+{exp:categories category_group_id='12'style="linear" show_empty="no" dynamic='yes' disable=“category_fields” }
+<div style="clear:left;"></div>
+<a title="{category_name}" href="{homepage}browse/list/category/{category_url_title}">
+            <h5>{category_name}</h5></a>
+
+{if no_results}
+<div class="browse-cat">
+<span class="no-results">Sorry, no results for this category - try another!</span>
+</div>
+{/if}
+        
+{exp:channel:entries channel='weblearn|tutorials|expertise|blog|universities' category="{category_id}" dynamic='on' limit='1' sort="desc" orderby="date" show_empty="yes"}
+   
+        <div class="rel-list-box">          
+        
+            <!--[if lte IE 9]><style>.ie-fix-img-thmb { width:90px;height:auto;border:none;}</style><![endif]-->
+            <a href="{path={channel_short_name}/detail/{url_title}}">{image_slideshow limit="1"}   {exp:ed_imageresizer image="{image}" maxWidth="130" maxHeight="80" cropratio="130:80" alt="{title}" debug="yes" forceWidth="yes" forceHeight="yes" }{/image_slideshow}</a>
+        <h6><a href="{path={channel_short_name}/detail/{url_title}}">{exp:snippet total="50" word="" ellipsis="..."}{title}{/exp:snippet}</a> <br /></h6>
+        <!--/in <a href="{channel_url}">'{channel_title}'</a>-->
+        
+        </div><!-- </.rel-list-box>-->
+
+{/exp:channel:entries}
+{/exp:categories} 
+        
+    </div>
+
+
+<!--university index short description to full article-->
+{exp:channel:entries channel="assorted_content" disable="member_data|trackbacks" limit="1" entry_id="111"}                
+    <div class="top-panel-overview">      
+           {image_slideshow limit="1"} {exp:ed_imageresizer image="{image}" maxWidth="300" maxHeight="160" cropratio="130:80" forceWidth="yes" forceHeight="yes" alt="{title}" debug="yes" title="#{entry_id}"}
+          {/image_slideshow}
+          
+                <h4>{title}</h4>
+                {page_body}
+
+    </div><!--/.top-panel-overview-->
+{/exp:channel:entries}
+
+     
+{exp:channel:categories channel="universities" category_group="12" style="linear" show_empty="yes"}
+
+    <div class="panel-index-cat-box-4">
+    
+        <a href="{path=universities/list}">  
+            {exp:ed_imageresizer image="{category_image}" maxWidth="200" maxHeight="130" cropratio="130:100" forceWidth="yes" forceHeight="yes" alt="{category_name}" debug="yes"}</a>
+        <a href="{path=universities/list}"><h3>{category_name}</h3></a>      
+        <p class="cat-sum-small">{exp:snippet total="180" word="" ellipsis="..."}  {category_description}{/exp:snippet}</p>
+        <a href="{path=universities/list}" class="panel-index-cat-box-more">Entries from {category_name}</a>
+    
+    </div><!--/.panel-index-cat-box-4-->
+  
+{/exp:channel:categories}
+
+    </div><!--/.panel-index-inner-cat-->
+ 
+</div><!--/.panel-index-holder-->
+</div><!--/.panel-index-->
+
+    <div class="channel-rss">
+        <a href="{exp:perssonal:link path='universities/rss' channel='universities' feed_name='London Met Elearning Matrix: Universities' feed_url='universities' feed_description='Elearning Matrix at London Met'}"><img src="{site_url}themes/site_themes/default_site/images/feed.png">Universities RSS</a>
+    </div><!--/.channel-rss-->
+
+
+{embed="embeds/_foot"}

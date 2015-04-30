@@ -1,0 +1,84 @@
+{exp:channel:entries channel="expertise|tutorials|weblearn|blog|assorted_content|universities" disable="member_data|trackbacks" limit="1" backspace="2" parse="inward"}
+           
+{image_slideshow}    
+          
+    {if field_total_rows > "1"}
+ {/image_slideshow}                
+
+    <div class="slider-wrapper theme-default">
+      
+        <div class="ribbon"></div>
+          
+        <div id="slider" class="nivoSlider">
+                <!--minWidth="350" minHeight="250"-->
+      {image_slideshow}  
+     
+        <a href="#" rel="#photo-big">{exp:ed_imageresizer image="{image}" maxWidth="450" maxHeight="350" alt="{title}" title="{title}" id=".{row_id}" forceWidth="no" forceHeight="no" cropratio="130:100"}</a>
+    
+      {/image_slideshow}
+      
+        </div>  <!--/.nivoSlider-->
+
+        {image_slideshow} 
+         <div class="{row_id} nivo-html-caption">
+            {caption}</div>
+         {/image_slideshow}
+                 
+    </div><!--/.slider-wrapper .theme-default-->
+    
+  
+    <!--overlay div for larger slideshow-->
+    
+     <div class="simple_overlay" id="photo-big">
+        
+        <div class="slider-wrapper theme-default">      
+            <div class="ribbon"></div>
+           <div id="slider_big" class="nivoSlider">
+     {image_slideshow}
+     {exp:ed_imageresizer image="{image}" maxWidth="600" maxHeight="500" forceWidth="yes" forceHeight="yes" cropratio="130:100" title="{title}" id=".{row_id}"  alt="{title}"}
+     {/image_slideshow}
+        </div>  <!--/#slider-big .nivoSlider-->
+        
+        
+           {image_slideshow} 
+         <div class="{row_id} nivo-html-caption">
+            {caption}</div>
+         {/image_slideshow}
+         
+        </div><!--/.slider-wrapper .theme-default-->
+ 
+     </div><!--/.simple_overlay-->
+    
+
+      {if:else}
+             
+    {image_slideshow}
+    
+    <div class="slideshow-single-img">
+
+                <a href="#" rel="#link1">
+                    {exp:ed_imageresizer image="{image}" maxWidth="450" maxHeight="350" forceWidth="yes" forceHeight="yes" alt="{title}" title="{title}"}</a>
+                
+              <div class="{row_id} slideshow-single-img-caption">
+            {caption}</div>
+                     
+    </div><!--/.slideshow-single-img-->
+{/image_slideshow}
+  
+    {/if}
+     
+     
+    <!--overlay div for larger single image-->
+    
+<div id="link1" class="simple_overlay">
+    {image_slideshow}
+   {exp:ed_imageresizer image="{image}" maxWidth="600" maxHeight="500" forceWidth="yes" forceHeight="yes" title="{title}" id=".{row_id}" cropratio="130:100" alt="{title}"}  
+ {!--{exp:ed_imageresizer image="{image}" maxWidth="580" maxHeight="480" forceWidth="yes" forceHeight="yes" alt="{title}" limit="1"}--}          
+         <div class="{row_id} slideshow-overlay-img-caption">
+            {caption}</div>       
+    {/image_slideshow}
+</div>
+
+{/exp:channel:entries}
+
+

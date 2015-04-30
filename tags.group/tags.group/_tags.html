@@ -1,0 +1,38 @@
+
+
+<div id="page">
+
+  <h2>Entries tagged with <em>"{segment_2}"</em></h2>
+  
+  <div class="page-body"> 
+
+    {exp:tagger:entries_quick tag="{segment_2}"}
+    {exp:channel:entries entry_id="{tagger:entry_ids}" channel="not assorted_content" limit="6" dynamic="no" paginate="bottom"}
+
+<div class="list_entry">
+  
+    {if channel:no_entries}<p>No entries where found</p>{/if}
+    {if tagger:no_entries}<p>No entries where found</p>{/if}
+    
+<a href="{channel_url}detail/{url_title}">{image_slideshow limit="1"}   {exp:ed_imageresizer image="{image}" maxWidth="130" maxHeight="100" cropratio="130:100"  alt="{title}" debug="yes"}{/image_slideshow}</a>
+
+<h3>{title}</h3>
+<p class="pub_date">{entry_date format="%D, %F %d, %Y; %G:%i:%s %a"}</p>
+<p>{exp:snippet total="250" word="" ellipsis="..."}{page_body}{/exp:snippet} <i><b>[<a href="{channel_url}detail/{url_title}">read the full entry</a>]</b></i></p>
+
+</div><!--/.list_entry-->
+
+   {if total_results <= '1'}
+    {paginate}
+    <div class="paginate"><span class="pagecount">Page {current_page} of {total_pages} pages</span>  
+    {pagination_links}</div>
+    {/paginate}
+{/if}
+
+    {/exp:channel:entries}
+    {/exp:tagger:entries_quick}
+   
+   
+   </div><!--/.page-body-->
+ 
+    </div><!--/#page-->

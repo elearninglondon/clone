@@ -1,0 +1,73 @@
+{exp:channel:entries channel="expertise|tutorials|weblearn|blog|universities" disable="member_data|trackbacks" limit="1"}
+
+{if panel_content}
+
+{panel_content}
+
+<div id="panel_content" style="padding: 10px 20px 20px 20px">
+    
+    
+ {if panel_image}
+ 
+                 <a href="#" rel="#link{row_id}">
+             {exp:ed_imageresizer image="{panel_image}" maxWidth="300" maxHeight="230" forceWidth="yes" forceHeight="yes" class="bb_tab_img" title="{panel_title}" id=".{row_id}" alt="{panel_title}" cropratio="130:100"}
+                </a>           
+                
+  {/if}
+
+
+{if panel_embed}
+ <span class="embed-tabbed"><style>.embed-tabbed div{display:none;}</style>{exp:tagstripper:tagsToStrip tags='p|strong|span'}
+ 
+ {panel_embed}
+ {/panel_embed}
+ 
+ {/exp:tagstripper:tagsToStrip}
+ </span>
+ {/if}
+ 
+<h3>{panel_title}</h3>
+{if panel_text}{panel_text}{/panel_text}{/if}
+
+
+            {if panel_file}
+             <div class="panel-content-downloads">
+                <h5>DOWNLOADS:</h5>
+                {panel_file}
+                <ul>
+       <li>
+       <a href="{url}">[{kind} : {size}]<span class="download-span"> <img src="{global_image_url}download_icon_sm.png" alt="downloads"/></span></a> '{title}'{if desc}, <i>{exp:snippet total="50" word="" ellipsis="..."}{desc}{/exp:snippet}</i>{/if}{if author}, by {author}{/if} 
+       </li>
+                </ul>
+                {/panel_file}
+             </div><!--/.panel-content-downloads-->
+             {/if}
+</div>
+{/panel_content}
+
+<div style="clear:both;"></div>
+
+{/if}<!--/end of if panel_content-->
+
+ <!--overlay div for larger slideshow-->
+  
+    {panel_content}
+    
+        <div class="simple_overlay" id="link{row_id}">
+
+         {exp:ed_imageresizer image="{panel_image}" maxWidth="700" maxHeight="500" forceWidth="no" forceHeight="no" title="{panel_title}" id=".{row_id}" alt="{panel_title}"}
+        
+        <div class="{row_id} panel-img-caption">
+           {if panel_title}{panel_title}{/if}
+        </div>
+
+        </div><!--/.simple_overlay-->
+        
+    {/panel_content}
+    
+
+{/exp:channel:entries}
+
+<!--/end of if else-->
+
+

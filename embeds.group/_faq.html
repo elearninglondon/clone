@@ -1,0 +1,104 @@
+{exp:channel:entries channel="faq" disable="member_data|trackbacks" limit="5" backspace="2" dynamic="no"}
+<!--faq entries using accordion layout-->
+
+<div id="panel_content" class="faq">
+   
+
+<h4 style="height:20px;color:#637580;font-style:italic;">Click on the arrows to access the anwsers</h4>
+
+<div class="accordion-faq"> <!-- accordion-faq --> 
+   <h3>Topic: {title}</h3>
+   <p>{faq_group_intro}</p>
+
+
+ {faq_set}	
+								 
+	<h2> <ul><li></li></ul>{faq_question} </h2> 
+{!--[{field_row_count}]--}
+	<div class="pane"> <!-- pane -->
+	
+      {if faq_rec_entries}
+       <div class="faq-rec-entries">
+	  <h4>Recommended Entries:</h4>  
+	  <ol>
+	  {faq_rec_entries}  <li>
+	    <a href="{path={channel_short_name}/detail/{url_title}}">{exp:snippet total="50" word="" ellipsis="..."}{title}{/exp:snippet}</a>
+	    </li>{/faq_rec_entries}
+	  </ol>
+       </div><!--/.faq-rec-entries-->
+       {/if}
+		
+      {if faq_image}   
+		  <a href="#" rel="#link{row_id}" class="faq-image">
+	       {exp:ed_imageresizer image="{faq_image}" maxWidth="150" maxHeight="120" forceWidth="no" forceHeight="no" title=".{row_id}" cropratio="150:100" alt="{title}"}
+		  </a>
+      {/if}
+        
+      <span class="embed-tabbed">{exp:tagstripper:tagsToStrip tags='div|p'}{if panel_embed}{panel_embed}{/panel_embed}{/if}{/exp:tagstripper:tagsToStrip}</span>
+
+      {if faq_answer_text}{faq_answer_text}{/faq_answer_text}{/if}
+	
+	</div> <!-- end of pane -->  
+        
+{/faq_set}	
+</div><!-- end of accordion-faq -->
+
+</div> <!--end of #panel_content .faq -->
+
+<script> 
+
+
+  $(function() {
+    $(".accordion-faq").tabs(
+    ".accordion-faq div.pane",
+    {tabs: 'h2',
+    effect: 'slide',
+    initialIndex: 11}
+  );
+    });
+  
+    $(function () {
+   $("a[rel]").overlay({mask: '#000'/*, effect: 'apple'*/});
+
+});
+  
+  
+/*  jQuery().ready(function(){
+        // simple accordion
+        jQuery('.accordion-faq').tabs(".accordion-faq div.pane",{
+	    tabs: 'h2',
+	    effect: 'slide',
+            active: 'false',
+            autoheight: 'false',
+            collapsible: 'true',
+            alwaysOpen: 'false'
+        });
+});*/
+  
+
+</script>
+
+
+  <!--overlay div for larger slideshow-->
+  
+  
+    {faq_set} 
+        <div class="simple_overlay" id="link{row_id}">
+             
+           {exp:ed_imageresizer image="{faq_image}" maxWidth="700" maxHeight="500" forceWidth="no" forceHeight="no" title="#{row_id}" alt="{faq_question}"}
+
+        <div class="{row_id} panel-img-caption">
+	 
+	 {faq_question}
+        {!-- {faq_image var_prefix="title"}
+  <a href="{faq_image:url}">{title} - {faq_image:title}</a>
+{/faq_image}--}
+        </div>
+
+        </div><!--/.simple_overlay-->
+       {/faq_set} 
+   
+
+
+
+{/exp:channel:entries}

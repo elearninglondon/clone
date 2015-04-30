@@ -1,0 +1,20 @@
+{!--{assign_variable:current_entry="{segment_3}"}--}
+  
+    <div class="shortread-tasters">
+        
+        <h3>Try some more Shortreads</h3>
+        
+        
+      {exp:channel:entries channel="shortreads" limit="3" orderby="random" dynamic="no" disable="member_data|trackbacks|pagination" status="not closed" url_title="not {segment_3}"}
+
+
+   <a href="{channel_url}entries/{url_title}">
+    <div class="shortread-list-box">          
+    <h6>{title} </h6>
+    <p>{exp:snippet total="125" word="" ellipsis="..."}{email_text}{/exp:snippet}</p>
+    </div><!-- </rel-list-box>-->
+</a>
+        
+    {/exp:channel:entries}    
+    </div><!--/.related-content-->
+ 

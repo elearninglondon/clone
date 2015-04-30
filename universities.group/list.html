@@ -1,0 +1,83 @@
+{embed="embeds/_html_head" my_page_title="{category_name}"}
+{embed="embeds/_head"}
+
+<!--this is the universities channel list-->
+
+<div id="page">
+  
+<!--category heading and summary stuff-->
+{exp:channel:category_heading channel="universities"}
+
+<h2>The <span class="cat-name">{category_name}</span> section</h2>
+
+<div class="page-body">
+  
+<div class="cat_summary">
+{exp:ed_imageresizer image="{category_image}" maxWidth="150" maxHeight="100" cropratio="150:100" forceWidth="yes" forceHeight="yes" alt="{title}" debug="yes" class="category_image"}
+
+     {if category_description}
+    <div class="cat-sum-small">{category_description}
+        {/if}
+        </div><!--/.cat_sum-small-->
+       
+       <!--conditionals to place read more links in right hand column-->     
+     {if segment_4 == "london-met"}{exp:channel:entries channel="assorted_content" dynamic='off' limit='1' entry_id="48"}
+      <a href="{channel_url}detail/{url_title}"  class="cat-sum-overview">
+      {/if}
+      {if segment_4  == "partners"}{exp:channel:entries channel="universities" dynamic='off' limit='1' entry_id="-"}
+      <a href="{channel_url}detail/{url_title}" class="cat-sum-overview">  
+      {/if}
+      {if segment_4 == "applied-research"}{exp:channel:entries channel="universities" dynamic='off' limit='1' entry_id="-"}
+      <a href="{channel_url}detail/{url_title}" class="cat-sum-overview">  
+      {/if}
+   
+      Read more about {category_name}</a>
+      
+      {/exp:channel:entries}
+<hr>
+     <!--London Met page excerpt-->   
+{if segment_4  == "london-met"}
+        {exp:channel:entries channel="assorted_content" disable="member_data|trackbacks" limit="1" entry_id="48"}
+        <div class="excerpt"> 
+             <a href="{path={url_title}}">{image_slideshow limit="1"}{exp:ed_imageresizer image="{image}" maxWidth="130" maxHeight="100" cropratio="130:100" alt="{title}" debug="yes" forceWidth="yes" forceHeight="yes" }{/image_slideshow}</a> <h4>{title}</h4>     
+            {page_body:excerpt}   <a href="{page_url}" class="showmore-gotoentry">Read more &rarr;</a>
+        </div><!--/.excerpt-->
+        
+        
+        
+        
+        
+        
+        <!--place northants page exceprt here-->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        {/exp:channel:entries}
+        <hr>
+{/if}
+      
+<!--list of all entries in named category-->     
+<h4>See below for everything in the <span class="cat-name">'{category_name}'</span> university category</h4>
+        
+{/exp:channel:category_heading}
+</div><!--/.cat_summary-->
+    
+<!--category entries stuff-->
+{embed=embeds/_list_items_unis}
+
+</div><!--/.page-body-->
+
+
+</div><!--/#page-->
+
+<!--embed the footer stuff-->
+{embed="embeds/_foot"}

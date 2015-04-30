@@ -1,0 +1,223 @@
+{layout="embeds/_html_layout"}{!--add relative path to this template group--}
+
+<!-- T&L ENTRY DETAIL for old content
+	================================================== -->
+
+<div class="container">
+
+	<!--<div class="sixteen columns">-->
+
+<div class="sixteen columns add-top">
+    
+    
+			
+	<article> {!--replace all conditionals with switchee--}
+
+<!--conditional channel call for page body entry content-->
+	{if segment_1 == "weblearn"}
+		{exp:channel:entries channel="weblearn" disable="pagination|member_data|trackbacks" limit="1" backspace="0" require_entry="yes" url_title="{segment_3}"}
+	{if:elseif segment_1 == "expertise"}
+		{exp:channel:entries channel="expertise" disable="pagination|member_data|trackbacks" limit="1" backspace="0" require_entry="yes" url_title="{segment_3}"}
+	{if:elseif segment_1 == "tutorials"}
+		{exp:channel:entries channel="tutorials" disable="pagination|member_data|trackbacks" limit="1" backspace="0" require_entry="yes" url_title="{segment_3}"}
+	{if:elseif segment_1 == "blog"}
+		{exp:channel:entries channel="blog" disable="pagination|member_data|trackbacks" limit="1" backspace="0" require_entry="yes" url_title="{segment_3}"}
+	{if:elseif segment_1 == "universities"}
+		{exp:channel:entries channel="universities" disable="pagination|member_data|trackbacks" limit="1" backspace="0" require_entry="yes" url_title="{segment_3}"}	
+	{if:else}	
+		{redirect="404"}	
+	{/if}
+
+	{if no_results}
+	{redirect="404"}
+	{/if}     
+
+<!--- author, date and snapshot summary fields -->
+    
+      
+                <h2>{title}</h2>
+		 <hr />
+                
+                <div class="sixteen columns add-bottom ">	
+		<div class="pubdate entry">{entry_date format="%M %d, %Y"}</div>			
+		<h4>Author: {if guest_author}{guest_author}{if:else}{author}{/if}</h4>	
+		</div>
+      
+
+<!---all page content fields-->
+
+    
+     
+    
+
+
+    {if social_video}   
+            <div class="offset-by-two thirteen columns">
+                <div class="videoWrapper embed">
+                {exp:channel_videos:videos entry_id="{entry_id}" embed_width="450" embed_height="300"}
+                <!--<h3>{video:title}</h3>-->
+                <br><br>
+                {video:embed_code}
+                {/exp:channel_videos:videos}
+                </div><!--/.videoWrapper .embed-->
+            </div><!--/.offset-by-two thirteen .columns-->
+
+<!--- embed media in the page body if it's there-->
+    {if:elseif embed_media}
+
+            <div class="offset-by-two thirteen columns">
+                <div class="videoWrapper embed">
+                   {embed_media}
+                </div><!--/.videoWrapper .embed-->
+            </div><!--/.offset-by-two thirteen .columns-->
+
+<!--- otherwise place the single image or image slideshow into the page body-->
+
+{if:else} 
+
+<div class="article-image fifteen columns offset-by-one">
+    {image_slideshow  limit="1"}
+   {exp:ed_imageresizer image="{image}" maxWidth="800" maxHeight="400" forceWidth="yes" forceHeight="yes" title="{caption}" alt="{caption}" cropratio="100:60"}  
+        
+         <div class="image-credit-hover">
+            {exp:snippet total="50" word="" ellipsis="./"}{caption}{/exp:snippet} | Credit: {exp:snippet total="40" word="" ellipsis="..."}{credit}{/exp:snippet}</div>       
+    {/image_slideshow}
+
+     </div><!--article-image fifteen columns offset-by-one-->
+
+    
+{/if}
+
+       <br class="clear" />
+      
+    {if summary}
+    <div class="standfirst-entry">
+        <p class="snapshot"><b>Snapshot:</b>
+        {exp:snippet total="200" word="" ellipsis="..."}{summary}{/exp:snippet}
+        </p>
+        </div>	
+    {/if}
+
+
+
+
+<!--- page body field-->
+{if page_body}
+    
+    {exp:tagstripper:tagsToStrip tags='div|object|embed|iframe|br'}{page_body}{/exp:tagstripper:tagsToStrip}
+
+{/if}
+
+<!--- download files field within page body field-->
+{if file_download}
+    <div>
+       <h4>Downloads</h4>
+       {file_download}
+       <ul>
+       <li>
+      <a href="{url}">[{kind} : {size}]<span class="download-span">'{title}'</a> {if desc}, <i>{exp:snippet total="50" word="" ellipsis="..."}{desc}{/exp:snippet}</i>{/if}{if author}, by {author}{/if}
+       </li>
+       </ul>
+       {/file_download}
+    </div><!--/.panel-content-downloads-->
+    
+{/if}
+
+
+
+<!--- panel content (field displaying tabs, accordions or page view) -->
+
+
+ <br class="clear" />
+
+{if panel_content}
+
+{panel_content}
+
+<div id="panel_content"> <!--div style="padding: 10px 20px 20px 20px"-->
+    
+    
+ {if panel_image}
+ 
+                 
+            <div style="float:right"> {exp:ed_imageresizer image="{panel_image}" maxWidth="300" maxHeight="230" forceWidth="yes" forceHeight="yes" class="bb_tab_img" title="{panel_title}" id=".{row_id}" alt="{panel_title}" cropratio="130:100"}</div>
+                         
+                
+  {/if}
+
+
+{if panel_embed}
+<div class="offset-by-two thirteen columns">
+  <div class="videoWrapper embed">{exp:tagstripper:tagsToStrip tags='p|strong|span'}
+ 
+ {panel_embed}
+ {/panel_embed}
+ 
+ {/exp:tagstripper:tagsToStrip}
+ </div>
+</div>
+
+ <br class="clear" />
+ {/if}
+ 
+
+ 
+<h3>{panel_title}</h3>
+{if panel_text}{exp:tagstripper:tagsToStrip tags='br'}{panel_text} {/exp:tagstripper:tagsToStrip}{/panel_text}{/if}
+
+
+            {if panel_file}
+             <div class="panel-content-downloads">
+                <h4>Downloads</h4>
+                {panel_file}
+                <ul>
+       <li>
+       <a href="{url}">[{kind} : {size}]<span class="download-span">'{title}'</a> {if desc}, <i>{exp:snippet total="50" word="" ellipsis="..."}{desc}{/exp:snippet}</i>{/if}{if author}, by {author}{/if} 
+       </li>
+                </ul>
+                {/panel_file}
+             </div><!--/.panel-content-downloads-->
+             {/if}
+             
+             
+             
+</div><!--/#panel content div-->
+{/panel_content}
+
+
+
+<br class="clear" />
+
+{/if}<!--/end of if panel_content-->
+
+
+     </article>
+
+	
+	</div><!--/.sixteen .columns-->
+        
+        
+        <div class="sixteen columns add-top category-footer">
+            
+		<h4>Categories</h4>
+
+	{exp:gwcode_categories entry_id="{entry_id}" style="linear" backspace="7"}
+		{if group_start}<strong>{cat_group_name}:</strong> {/if}
+		<a href="{path={segment_1}/list/{cat_name}}">{cat_name}</a>,&nbsp;
+	{/exp:gwcode_categories}
+	
+	
+	<div class="tagged copyright">
+        <h5>Copyright Licence for this article</h5>        
+	{copyright}
+	</div><!--/.tagged-->     
+        
+    
+        </div><!--/.sixteen .columns .category-footer-->
+        
+        
+	{/exp:channel:entries}
+        
+        
+        
+<!-- end of archive entry template -->

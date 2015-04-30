@@ -1,0 +1,48 @@
+{embed="embeds/_html_head" my_page_title="The London Met Elearning Matrix/{segment_1}"}
+{embed="embeds/_head"}
+<!--this is the general shortreads list which is also THE INDEX PAGE-->
+
+{exp:moblog:check silent="yes" which="shortreads-general|conferences"}
+
+<div id="page">
+  
+   <h2>ShortReads</h2>
+   
+    <div class="browse-cat-sum">
+      
+  <p class="intro"> ShortReads are the submissions we receive by email - either from satisfied participants of our CPD programme, or from staff and students who are involved in some way with technology enhanced learning and teaching.
+        </p>
+  
+</div><!--/.browse_cat_summary-->
+
+<div class="page-body">   
+
+{exp:channel:entries channel="shortreads" limit="8" orderby="asc" dynamic="no" paginate="bottom" disable="member_data|trackbacks" status="not closed"}
+<div class="email-list">
+
+<a href="{channel_url}entries/{url_title}"><h3>{title}</h3></a>
+<p class="pub_date">{entry_date format="%D, %F %d, %Y; %G:%i:%s %a"}</p>
+
+<div class="content-desc-list">
+{exp:word_limit total="40" word="" ellipsis="..."} {exp:tagstripper:tagsToSave tags='strong|b|p|img'}{email_text}{/exp:tagstripper:tagsToSave}{/exp:word_limit}
+<a href="{channel_url}entries/{url_title}" class="read">
+   <i>read the full entry</i></a>
+</div>
+</div><!--/.email-list-->
+
+{if total_results <= '1'}
+    {paginate}
+    <!--pagination-->
+    <div class="paginate"><span class="pagecount">Page {current_page} of {total_pages} pages</span>  
+    {pagination_links}</div>
+    {/paginate}
+{/if}
+
+{/exp:channel:entries}
+
+</div><!--/.page-body-->
+
+</div><!--/#page-->
+
+<!--embed the footer stuff-->
+{embed="embeds/_foot"}

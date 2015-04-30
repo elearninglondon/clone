@@ -1,0 +1,95 @@
+{exp:channel:entries channel="expertise|tutorials|weblearn|blog|universities" disable="member_data|trackbacks" limit="1" backspace="2" }
+
+<div id="panel_content">
+    <!--<small><i>Click on the tabs to access panels of content</i></small>-->
+<h4 style="height:20px;color:#637580;font-style:italic;">Click on the tabs to access more content</h4>
+
+{if panel_content}
+
+
+
+    <!-- tabs --> 
+          <ul class="css-tabs_bb"> 
+     {panel_content}
+         <li> <a href="#">{exp:snippet total="40" word="" ellipsis="..."}{panel_title}{/exp:snippet}</a></li>
+     {/panel_content}
+          </ul>
+
+        <div class="css-panes_bb"> <!-- panes --> 
+        
+{panel_content}
+        
+                <div> <!--tab 1-->
+                
+               <h2 style="font-size:22px; border:none !important;margin-left:-10px;letter-spacing:normal;"> {panel_title}</h2>
+                
+                {if panel_image}
+
+                <a href="#" rel="#link{row_id}">
+             {exp:ed_imageresizer image="{panel_image}" maxWidth="300" maxHeight="230" forceWidth="yes" forceHeight="yes" class="bb_tab_img" title="{panel_title}" id=".{row_id}" cropratio="130:100" alt="{panel_title}"}
+                </a>
+               {/if}
+                       
+              {if panel_embed}         
+                <span class="embed-tabbed"><style>.embed-tabbed div{display:none;}</style>{exp:tagstripper:tagsToStrip tags='p|strong|a|span'}{panel_embed}{/panel_embed}{/exp:tagstripper:tagsToStrip}</span>
+               {/if}
+                
+               {if panel_text} {exp:tagstripper:tagsToStrip tags='iframe|embed|object'}{panel_text}{/panel_text}{/exp:tagstripper:tagsToStrip}{/if}
+        
+             {if panel_file}
+             <div class="panel-content-downloads">
+                <h5>DOWNLOADS:</h5>
+                {panel_file}
+                <ul>
+        <li>
+       <a href="{url}">[{kind} : {size}]<span class="download-span"> <img src="{global_image_url}download_icon_sm.png" alt="downloads"/></span></a> '{title}'{if desc}, <i>{exp:snippet total="50" word="" ellipsis="..."}{desc}{/exp:snippet}</i>{/if}{if author}, by {author}{/if}
+       </li>
+                </ul>
+                {/panel_file}
+             </div><!--/.panel-content-downloads-->
+             {/if}
+  
+        
+                
+            </div> <!--end of tab 1 -->
+
+{/panel_content}
+
+</div> <!-- end of css-panes_bb-->
+
+</div> <!--end of panel content-->
+
+<script type='text/javascript'>$(".css-tabs_bb:first").tabs(".css-panes_bb:first > div"); </script>
+
+
+
+{/if}<!--/end of if panel_content-->
+
+
+
+  <!--overlay div for larger slideshow-->
+  
+    {panel_content}
+    
+        <div class="simple_overlay" id="link{row_id}">
+            
+           
+        
+         {exp:ed_imageresizer image="{panel_image}" maxWidth="700" maxHeight="500" forceWidth="no" forceHeight="no" title="{panel_title}" id=".{row_id}" alt="{panel_title}"}
+        
+        <div class="{row_id} panel-img-caption">
+           {if panel_title}{panel_title}{/if}
+        </div>
+
+        </div><!--/.simple_overlay-->
+        
+    {/panel_content}
+    
+    
+
+{/exp:channel:entries}
+
+
+
+
+

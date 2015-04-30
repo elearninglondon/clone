@@ -1,0 +1,130 @@
+<!--page body content for detail and page module templates-->
+
+<div id="page">   
+
+<!--conditional channel call for page body entry content-->
+    {if segment_1 == "weblearn"}
+        {exp:channel:entries channel="weblearn" disable="pagination|member_data|trackbacks" limit="1" backspace="0" require_entry="yes" url_title="{segment_3}"}
+    {/if}
+    {if segment_1 == "expertise"}
+        {exp:channel:entries channel="expertise" disable="pagination|member_data|trackbacks" limit="1" backspace="0" require_entry="yes" url_title="{segment_3}"}
+    {/if}
+    {if segment_1 == "tutorials"}
+        {exp:channel:entries channel="tutorials" disable="pagination|member_data|trackbacks" limit="1" backspace="0" require_entry="yes" url_title="{segment_3}"}
+    {/if}
+    {if segment_1 == "blog"}
+        {exp:channel:entries channel="blog" disable="pagination|member_data|trackbacks" limit="1" backspace="0" require_entry="yes" url_title="{segment_3}"}
+    {/if}
+    {if segment_1 == "universities"}
+        {exp:channel:entries channel="universities" disable="pagination|member_data|trackbacks" limit="1" backspace="0" require_entry="yes" url_title="{segment_3}"}
+    {/if}
+
+{if no_results}
+{redirect="404"}
+{/if}     
+
+<!--- author, date and snapshot summary fields -->
+      <span class="pub_date_author">by {if guest_author}{guest_author}{if:else}{author}{/if}, on {entry_date format="%M %d, %Y"}</span>
+      
+        <h2>{title}</h2>
+    {if summary}
+        <p class="snapshot"><b>Snapshot:</b>
+        {exp:snippet total="200" word="" ellipsis="..."}{summary}{/exp:snippet}
+        </p>
+    {/if}
+    
+<!--- social media share and print buttons-->
+{embed="embeds/_print_share"}
+
+<!---all page content fields-->
+<div class="page-body">
+
+    {if social_video}   
+    <div class="media-embed">
+
+    {exp:channel_videos:videos entry_id="{entry_id}" embed_width="450" embed_height="300"}
+        <!--<h3>{video:title}</h3>-->
+        <br><br>
+        {video:embed_code}
+    {/exp:channel_videos:videos}
+    
+    </div><!--/.media-embed-->
+
+<!--- embed media in the page body if it's there-->
+{if:elseif embed_media}
+
+    <div class="media-embed"> 
+    {embed="embeds/_embed_media"}
+    </div><!--/.media-embed-->
+
+
+<!--- otherwise place the single image or image slideshow into the page body-->
+{if:elseif image_slideshow}
+
+{embed="embeds/_image_slideshow"}
+
+<!--- if there's no image or media, give a message to say so-->
+{if:else}
+
+    <div class="no-image-thmb">Sorry, no image available</div>
+    
+{/if}
+
+<!--- page body field-->
+{if page_body}
+    
+    {exp:tagstripper:tagsToStrip tags='div|object|embed|iframe'}{page_body}{/exp:tagstripper:tagsToStrip}
+
+{/if}
+
+<!--- download files field within page body field-->
+{if file_download}
+    <div class="page-body-downloads">
+       <h5>DOWNLOADS:</h5>
+       {file_download}
+       <ul>
+       <li>
+      <a href="{url}">[{kind} : {size}]<span class="download-span"> <img src="{global_image_url}download_icon_sm.png" alt="downloads"/></span></a> '{title}'{if desc}, <i>{exp:snippet total="50" word="" ellipsis="..."}{desc}{/exp:snippet}</i>{/if}{if author}, by {author}{/if}
+       </li>
+       </ul>
+       {/file_download}
+    </div><!--/.panel-content-downloads-->
+    
+{/if}
+
+</div><!--/.page_body-->
+
+<!--- panel content field displaying tabs, accordions or page view-->
+
+{if panel_content}
+    {embed="{select_view}"}
+{/if}
+
+
+<br />
+<hr />
+
+<!--- begin the page footer area-->
+
+{embed="embeds/_page_foot"}
+
+<div style="clear:both"></div>
+<hr />
+
+<!--is commenting on?-->
+
+{if commenting == "y"}
+
+{embed="embeds/_disqus"}
+
+{/if}
+
+{/exp:channel:entries}
+
+
+  
+
+    
+
+
+</div><!--/#page-->

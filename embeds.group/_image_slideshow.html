@@ -1,0 +1,39 @@
+{exp:channel:entries channel="expertise|tutorials|weblearn|blog|assorted_content|universities" disable="pagination|member_data|trackbacks" limit="1" backspace="2" parse="inward"}
+
+
+
+             
+<!--single image slideshow ONLY for archived content-->
+
+    {image_slideshow}
+    
+    <div class="slideshow-single-img">
+
+                <a href="#" rel="#link1">
+                    {exp:ed_imageresizer image="{image}" maxWidth="450" maxHeight="320" forceWidth="yes" cropratio="140:100" forceHeight="yes" alt="{caption}" title="{caption}"}</a>
+                
+              <div id="{row_id}" class="slideshow-single-img-caption">
+            {exp:snippet total="50" word="" ellipsis="./"}{caption}{/exp:snippet} | Credit: {exp:snippet total="40" word="" ellipsis="..."}{credit}{/exp:snippet}</div>
+                     
+    </div><!--/.slideshow-single-img-->
+    
+
+    {/image_slideshow}
+  
+   
+     
+     
+    <!--overlay div for larger single image-->
+    
+<div id="link1" class="simple_overlay">
+    {image_slideshow}
+   {exp:ed_imageresizer image="{image}" maxWidth="600" maxHeight="500" forceWidth="yes" forceHeight="yes" title="{caption}" id="#{row_id}" cropratio="130:100" alt="{caption}"}  
+        
+         <div id="{row_id}" class="slideshow-overlay-img-caption">
+            {exp:snippet total="50" word="" ellipsis="./"}{caption}{/exp:snippet} | Credit: {exp:snippet total="40" word="" ellipsis="..."}{credit}{/exp:snippet}</div>       
+    {/image_slideshow}
+</div>
+
+{/exp:channel:entries}
+
+

@@ -1,0 +1,65 @@
+{exp:channel:category_heading channel="weblearn"}
+{embed="embeds/_html_head" my_page_title="{category_name}"}
+{embed="embeds/_head"}
+
+<!--this is the weblearn channel list-->
+
+<div id="page">
+  
+<!--category heading and summary stuff-->
+{!--{exp:channel:category_heading channel="weblearn"}--}
+
+<h2>everything in <span class="cat-name">'{category_name}'</span></h2>
+
+<div class="page-body">
+  
+<div class="cat_summary">
+  
+{exp:ed_imageresizer image="{category_image}" maxWidth="150" maxHeight="100" cropratio="150:100" forceWidth="yes" forceHeight="yes" alt="{title}" debug="yes" class="category_image"}
+
+    {if category_description}
+    <div class="cat-sum-small">{category_description}
+        {/if}
+        </div><!--/.cat_sum-small-->
+            
+   {if segment_4 == "assessment-feedback"}{exp:channel:entries channel="weblearn" dynamic='off' limit='1' entry_id="35"}
+      <a href="{channel_url}detail/{url_title}"  class="cat-sum-overview"> Read more about {category_name}</a>
+      
+      {/exp:channel:entries}
+      {/if}
+      {if segment_4  == "collaboration"}{exp:channel:entries channel="weblearn" dynamic='off' limit='1' entry_id="34"}
+      <a href="{channel_url}detail/{url_title}" class="cat-sum-overview">   Read more about {category_name}</a>
+      
+      {/exp:channel:entries}
+      {/if}
+      {if segment_4 == "communication"}{exp:channel:entries channel="weblearn" dynamic='off' limit='1' entry_id="42"}
+      <a href="{channel_url}detail/{url_title}" class="cat-sum-overview">   Read more about {category_name}</a>
+      
+      {/exp:channel:entries}
+      {/if}
+      {if segment_4 == "learning-design"}{exp:channel:entries channel="weblearn" dynamic='off' limit='1' entry_id="43"}
+      <a href="{channel_url}detail/{url_title}" class="cat-sum-overview">   Read more about {category_name}</a>
+      
+      {/exp:channel:entries}
+      {/if}
+            
+            
+     
+<h4>See below for everything in the <span class="cat-name">'{category_name}'</span> category</h4>
+        
+        {/exp:channel:category_heading}
+    </div><!--/.cat_summary-->
+    
+    
+
+<!--category entries stuff-->
+  
+{embed=embeds/_list_items}
+
+</div><!--/.page-body-->
+
+
+</div><!--/#page-->
+
+<!--embed the footer stuff-->
+{embed="embeds/_foot"}
